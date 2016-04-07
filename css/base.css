@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* 基础css */
+
+*{ padding:0; margin:0;}
+body{ font-size:12px;color:#666;line-height:100%;}
+ul,ol{ list-style:none;}
+a{ color:#261cdc;text-decoration:none;}
+h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
+i,em{ font-style:normal;}
+b,strong{ font-weight:normal;}
+a img{ border:none;}
+img{ vertical-align:top;}
+.clearfix:after{display:block;content:'';clear:both;}
+.clearfix{zoom:1;}
+input{outline:none;border:none 0;}
+textarea{outline:none;resize:none;}
+table{border-collapse:collapse;}
+td,th{padding:0;}
+
+.fl{float:left !important;}
+.fr{float:right !important;}
