@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社—http://www.zhinengshe.com</title>
+    <style>
+        html,body{height:100%;overflow:hidden;}
+        .box{
+            width:300px;
+            height:300px;
+            border: 1px solid #000;
+            background: url(images/1111.png) no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            box-shadow:inset 0 0 5px #000;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+        .cap{
+            width:20px;
+            height:20px;
+            background: -webkit-radial-gradient(#ccc,#000);
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin: -10px 0 0 -10px;
+            border-radius: 50%;
+        }
+        .box div{
+            transform-origin: bottom center;
+        }
+        .hour{
+            width:14px;
+            height:80px;
+            background: #000;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -7px;
+            margin-top: -80px;
+            border-radius: 50% 50% 0 0;
+        }
+        .min{
+            width:10px;
+            height:100px;
+            background: #000;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -5px;
+            margin-top: -100px;
+            border-radius: 50% 50% 0 0;
+        }
+        .sec{
+            width:2px;
+            height:120px;
+            background: #f00;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -1px;
+            margin-top: -120px;
+        }
+    </style>
+    <script src="js/jquery-1.7.2.js"></script>
+    <script>
+        window.onload=function(){
+            var oBox=$('.box');
+            var oH=document.querySelector('.hour');
+            var oM=document.querySelector('.min');
+            var oS=document.querySelector('.sec');
+
+            function tick(){
+                var oDate=new Date();
+                var h=oDate.getHours();
+                var m=oDate.getMinutes();
+                var s=oDate.getSeconds();
+                var ms=oDate.getMilliseconds();
+
+                oH.style.transform='rotate('+(h*30+m/60*30)+'deg)';
+                oM.style.transform='rotate('+(m*6+s/60*6)+'deg)';
+                oS.style.transform='rotate('+(s*6+ms/1000*6)+'deg)';
+            }
+            tick();
+            setInterval(tick,1000);
+
+            //拖拽
+            var timer=null;
+            var iSpeedX=0;
+            var iSpeedY=0;
+            var lastX=0;
+            var lastY=0;
+            oBox.mousedown(function(ev){
+                var disX=ev.clientX-oBox.offset().left;
+                var disY=ev.clientY-oBox.offset().top;
+
+                $(document).mousemove(move);
+                $(document).mouseup(up);
+                clearInterval(timer);
+                function move(ev){
+                    var left=ev.clientX-disX;
+                    var top=ev.clientY-disY;
+
+                    oBox.css({left:left+'px', top:top+'px'});
+
+                    iSpeedX=ev.clientX-lastX;
+                    iSpeedY=ev.clientY-lastY;
+                    lastX=ev.clientX;
+                    lastY=ev.clientY;
+                }
+                function up(){
+                    $(document).off('mousemove',move);
+                    $(document).off('mouseup',up);
+
+                    doMove();
+                }
+                return false;
+            });
+            function doMove(){
+                timer=setInterval(function(){
+                    iSpeedY+=3;
+                    var l=oBox.offset().left+iSpeedX;
+                    var t=oBox.offset().top+iSpeedY;
+                    if(t>=$(window).height()-oBox.height()){
+                        t=$(window).height()-oBox.height();
+                        iSpeedY*=-0.8;
+                        iSpeedX*=0.8;
+                    }
+                    if(t<=0){
+                        t=0;
+                        iSpeedY*=-0.8;
+                        iSpeedX*=0.8;
+                    }
+                    if(l>=$(window).width()-oBox.width()){
+                        l=$(window).width()-oBox.width();
+                        iSpeedX*=-0.8;
+                        iSpeedY*=0.8;
+                    }
+                    if(l<0){
+                        l=0;
+                        iSpeedX*=-0.8;
+                        iSpeedY*=0.8;
+                    }
+                    oBox.css({left:l+'px',top:t+'px'});
+                    if(Math.abs(iSpeedX)<1)iSpeedX=0;
+                    if(Math.abs(iSpeedY)<1)iSpeedY=0;
+
+                    if(iSpeedX==0 && iSpeedY==0 && t==document.documentElement.clientHeight-oBox.offsetHeight){
+                        clearInterval(timer);
+                    }
+                },30);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+        <div class="cap"></div>
+    </div>
+</body>
+</html>
+
+
+
+
