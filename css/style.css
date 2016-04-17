@@ -1429,6 +1429,20 @@
 			.poptrox-popup:hover .closer:hover {
 				opacity: 1.0;
 			}
+
+			#send{
+				width:100px;
+				height:50px;
+				border-radius:10px;
+				border:1px solid #859aff;
+				background:#7ccbff;
+				display:inline-block;
+				text-align:center;
+				line-height:50px;
+				text-decoration:none;
+				font-size:24px;
+				color: #fffdc7;
+			}
 			
 /*********************************************************************************/
 /* Touch Mode                                                                    */
