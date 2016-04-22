@@ -13,7 +13,6 @@
 		<script src="js/init.js"></script>
 		<script src="js/change.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
@@ -57,7 +56,7 @@
 			</section>
 
 		<!-- One -->
-		<section id="one" class="main style2 left dark fullscreen">
+			<section id="one" class="main style2 left dark fullscreen">
 			<div class="content box style2 who">
 				<header>
 					<h2>个人简历</h2>
@@ -91,59 +90,50 @@
 				<a href="#work" class="button style2 down anchored">Next</a>
 			</section>
 		
-
-			
+		
 		<!-- Work -->
 			<section id="work" class="main style3 primary">
 				<div class="content container">
 					<header>
 						<h2>作品展示</h2>
-						<p>闲暇之余，我喜欢研究最新的互联网科技成果，每一个横空出世的小效果都让我兴奋不已，佩服开发者
-							天马行空的想象力的同时，也在感慨何时我也能创造出一个惊世骇俗之作，这也一直激励着我不断在
-							探索中前行，以下是我平时做的一些小案例，欢迎指教。</p>
+
 					</header>
-					
 
-					<div class="egbox">
+					<div id="showBox">
+						<input type="button" value="上一个" class="prev">
+						<input type="button" value="下一个" class="next">
+						<ul id="showList">
 
-						<div class="eg">
-							<a href="picture.html" target="_blank">3D照片墙</a>
-							<i></i>
-							<p>你绝对意想不到的梦幻乐园！</p>
-						</div>
+							<li class="l2">
+								<a href="cube.html" target="_blank">3D魔方</a>
+							</li>
+							<li class="l1">
+								<a href="book.html" target="_blank">图片翻页</a>
+							</li>
+							<li class="cur">
+								<a href="game-fish/demo.html" target="_blank">捕鱼达人游戏</a>
+							</li>
+							<li class="r1">
+								<a href="apple.html" target="_blank">apple菜单</a>
+							</li>
+							<li class="r2">
+								<a href="picture.html" target="_blank">3D照片墙</a>
+							</li>
+							<li>
+								<a href="explose.html" target="_blank">图片爆炸</a>
+							</li>
+							<li>
+								<a href="time.html" target="_blank">遗弃的钟表</a>
+							</li>
+							<li>
+								<a href="tip-scroll.html" target="_blank">链式翻转</a>
+							</li>
+							<li>
+								<a href="windows-screen.html" target="_blank">windows屏保</a>
+							</li>
 
-						<div class="eg">
-							<a href="book.html" target="_blank">图片翻页</a>
-							<i></i>
-							<p>点击图片实现3D炫酷翻页效果</p>
-						</div>
-
-						<div class="eg">
-							<a href="time.html" target="_blank">遗弃的钟表</a>
-							<i></i>
-							<p>任意丢弃这只钟表来发泄你的怒火吧！</p>
-						</div>
-
-						<div class="eg">
-							<a href="scroll.html" target="_blank">无缝滚动</a>
-							<i></i>
-							<p>万能的无缝滚动，点击进入</p>
-						</div>
-
-						<div class="eg">
-							<a href="list.html" target="_blank">作品展示</a>
-							<i></i>
-							<p>及时更新您的小作品哦！</p>
-						</div>
-
-						<div class="eg">
-							<a href="cube.html" target="_blank">3D魔方</a>
-							<i></i>
-							<p>带你进入3D魔幻世界，点击进入</p>
-						</div>
-
+						</ul>
 					</div>
-
 				</div>
 			</section>
 			
@@ -199,6 +189,6 @@
 					</ul>
 			
 			</footer>
-		<audio src="mp3/Climb.mp3" autoplay loop></audio>
+			<audio src="mp3/Climb.mp3" autoplay loop></audio>
 	</body>
 </html>

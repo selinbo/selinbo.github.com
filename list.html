@@ -45,7 +45,7 @@
             -webkit-box-reflect: below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
         }
         #ul1 li.l2{
-            opacity: 0;
+            opacity: 0.1;
             z-index:2;
             transform:perspective(800px) translateX(-300px) rotateY(60deg);
         }
@@ -64,7 +64,7 @@
             transform:perspective(800px) translateX(200px) rotateY(-60deg);
         }
         #ul1 li.r2{
-            opacity: 0;
+            opacity: 0.1;
             z-index:2;
             transform:perspective(800px) translateX(300px) rotateY(-60deg);
         }
@@ -73,8 +73,10 @@
         window.onload=function(){
             var oNext=document.querySelector('.next');
             var oPrev=document.querySelector('.prev');
+            var oBox=document.querySelector('#box');
             var aLi=document.querySelectorAll('#ul1 li');
             var bReady=true;
+            var timer=null;
 
             //存储class
             var aClass=[];
@@ -99,7 +101,6 @@
                 if(bReady==false)return;
                 bReady=false;
                 aClass.unshift(aClass.pop());
-
                tab();
             };
 
@@ -109,10 +110,28 @@
                 aClass.push(aClass.shift());
                 tab();
             };
+
+            clearInterval(timer);
+            timer=setInterval(function(){
+                aClass.push(aClass.shift());
+                tab();
+            },2000);
+
+            oBox.onmouseover=function(){
+                clearInterval(timer);
+            };
+            oBox.onmouseleave=function(){
+                timer=setInterval(function(){
+                    aClass.push(aClass.shift());
+                    tab();
+                },1000);
+            };
+
         };
     </script>
 </head>
 <body>
+<div id="box">
     <input type="button" value="←" class="prev">
     <input type="button" value="→" class="next">
     <ul id="ul1">
@@ -125,6 +144,7 @@
         <li>6</li>
         <li>7</li>
     </ul>
+</div>
 </body>
 </html>
 

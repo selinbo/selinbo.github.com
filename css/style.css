@@ -1,9 +1,9 @@
 @charset 'UTF-8';
 @font-face{font-family:'FontAwesome';src:url('font/fontawesome-webfont.eot?v=4.0.1');src:url('font/fontawesome-webfont.eot?#iefix&v=4.0.1') format('embedded-opentype'),url('font/fontawesome-webfont.woff?v=4.0.1') format('woff'),url('font/fontawesome-webfont.ttf?v=4.0.1') format('truetype'),url('font/fontawesome-webfont.svg?v=4.0.1#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
 
-/*********************************************************************************/
-/* Basic                                                                         */
-/*********************************************************************************/
+/**
+* Basic
+**/
 
 	*{
 		margin:0;
@@ -26,7 +26,7 @@
 				transition: none !important;
 			}
 
-	body,input,textarea,select {
+	body,textarea,select {
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 300;
 		font-size: 20px;
@@ -496,7 +496,7 @@
 					-ms-transform: translateZ(0);
 					transform: translateZ(0);
 				}
-				
+
 			.main.style1.inactive {
 			}
 			
@@ -597,11 +597,11 @@
 					background-image: url('images/dark-arrow.svg');
 				}
 		
-/*********************************************************************************/
-/* Icons                                                                         */
-/* Powered by Font Awesome by Dave Gandy | http://fontawesome.io                 */
-/* Licensed under the SIL OFL 1.1 (font), MIT (CSS)                              */
-/*********************************************************************************/
+/**
+* Icons
+* Powered by Font Awesome by Dave Gandy | http://fontawesome.io
+* Licensed under the SIL OFL 1.1 (font), MIT (CSS)
+**/
 
 	.fa {
 		text-decoration: none;
@@ -1022,9 +1022,9 @@
 		.fa-vimeo-square:before{content:"\f194"}
 		.fa-turkish-lira:before,.fa-try:before{content:"\f195"}
 
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
+/**
+* Header
+**/
 
 	#header {
 		position: fixed;
@@ -1089,18 +1089,18 @@
 					outline: 0;
 				}
 
-/*********************************************************************************/
-/* Intro                                                                         */
-/*********************************************************************************/
+/**
+* Intro
+**/
 
 	#intro {
 		background:url('../images/kobe.jpg')  no-repeat;
 		background-size: cover;
 	}
 
-/*********************************************************************************/
-/* One                                                                           */
-/*********************************************************************************/
+/**
+* One
+**/
 
 	#one {
 		background: url('images/overlay.png'), url('../images/3.jpg') no-repeat;
@@ -1113,9 +1113,9 @@
 	}
 
 
-/*********************************************************************************/
-/* Two                                                                           */
-/*********************************************************************************/
+/**
+* Two
+**/
 
 	#two {
 		background: url('images/overlay.png'), url('../images/4.jpg');
@@ -1127,13 +1127,16 @@
 		color:#eee;
 	}
 
-/*********************************************************************************/
-/* Work                                                                          */
-/*********************************************************************************/
+/**
+* Work
+**/
 
 	#work {
 		background:url(../images/work.jpg) no-repeat;
+		height:700px;
 		background-size:cover;
+		padding:30px 0;
+
 	}
 	
 	#work .egbox{
@@ -1152,15 +1155,12 @@
 		overflow:hidden;
 	}
 
-	#work .egbox .eg:hover i,#work .egbox .eg:hover p{
-		top:156px;
-	}
 	#work .egbox .eg a{
 		width:100%;
 		height:100%;
 		font-size:40px;
 		text-align:center;
-		line-height:226px;
+		line-height:11.3em;
 		color: #ff787b;
 		text-decoration:none;
 	}
@@ -1191,9 +1191,110 @@
 		transition:.4s all ease;
 	}
 
-/*********************************************************************************/
-/* Contact                                                                       */
-/*********************************************************************************/
+	#showBox{
+		position:relative;
+	}
+
+	#showBox input{
+		width:4em;
+		height:2em;
+		text-align:center;
+		line-height:3em;
+		margin:0 10px 10px 0;
+		cursor:pointer;
+	}
+
+	#showBox .prev{
+		left:5em;
+		z-index:10;
+	}
+	#showList{
+		width:24em;
+		height:20em;
+		margin:0 auto;
+		position:relative;
+	}
+	#showList a{
+		width:100%;
+		height:100%;
+		cursor:pointer;
+		display:block;
+		text-underline: none;
+		color: #f9ff80;
+	}
+	#showList li{
+		width:24em;
+		height:20em;
+		background:#399;
+		position:absolute;
+		left:0;
+		top:0;
+		transition:.4s all ease;
+		-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.4));
+	}
+	#showList li.l2{
+		opacity:0;
+		z-index:2;
+		transform:perspective(800px) translateX(-320px) rotateY(60deg);
+	}
+	#showList li.l1{
+		opacity:0.8;
+		z-index:5;
+		transform:perspective(800px) translateX(-250px) rotateY(60deg);
+	}
+	#showList li.cur{
+		opacity: 1;
+		z-index:10;
+	}
+	#showList li.r1{
+		opacity: 0.8;
+		z-index:5;
+		transform:perspective(800px) translateX(250px) rotateY(-60deg);
+	}
+	#showList li.r2{
+		opacity: 0;
+		z-index:2;
+		transform:perspective(800px) translateX(320px) rotateY(-60deg);
+	}
+	#showList li:nth-child(1){
+		background:url(../images/cube.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(2){
+		background:url(../images/book.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(3){
+		background:url(../images/fish.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(4){
+		background:url(../images/apple.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(5){
+		background:url(../images/picture.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(6){
+		background:url(../images/explose.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(7){
+		background:url(../images/time.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(8){
+		background:url(../images/tip.png) no-repeat;
+		background-size:cover;
+	}
+	#showList li:nth-child(9){
+		background:url(../images/screen.png) no-repeat;
+		background-size:cover;
+	}
+/**
+* Contact
+**/
 
 	#contact {
 		padding-bottom: 0;
@@ -1219,7 +1320,7 @@
 			-ms-transform: translateZ(0);
 			transform: translateZ(0);
 		}
-		
+
 		#contact.inactive {
 		}
 
@@ -1227,9 +1328,9 @@
 				bottom: -30em;
 			}
 
-/*********************************************************************************/
-/* Footer                                                                        */
-/*********************************************************************************/
+/**
+* Footer
+**/
 	
 	#footer {
 		position: relative;
@@ -1283,9 +1384,9 @@
 				font-size: 0.9em;
 			}
 
-/*********************************************************************************/
-/* Poptrox                                                                       */
-/*********************************************************************************/
+/**
+* Poptrox
+**/
 
 	.poptrox-popup {
 		background: #fff;
@@ -1444,9 +1545,9 @@
 				color: #fffdc7;
 			}
 			
-/*********************************************************************************/
-/* Touch Mode                                                                    */
-/*********************************************************************************/
+/**
+* Touch Mode
+**/
 
 	body.touch {
 	}

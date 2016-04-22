@@ -75,21 +75,6 @@
 				$all = $body.add($header),
 				sectionTransitionState = false;
 
-			// Disable animations/transitions until everything's loaded
-				$all
-					.addClass('loading')
-					.fadeTo(0, 0.0001);
-				
-				$window.load(function() {
-					window.setTimeout(function() {
-						$all
-							.fadeTo(_settings.fadeInSpeed, 1, function() {
-								$body.removeClass('loading');
-								$all.fadeTo(0, 1);
-							});
-					}, _settings.fadeInSpeed);
-				});
-				
 			// Settings overrides
 			
 				// IE <= 9?
@@ -145,7 +130,7 @@
 										// Generic sections
 											$('.main.style1')
 												.scrollwatch({
-													delay:		50,
+													delay:		15,
 													range:		0.25,
 													anchor:		'center',
 													init:		function(t) { t.addClass('inactive'); },
@@ -155,45 +140,12 @@
 
 											$('.main.style2')
 												.scrollwatch({
-													delay:		50,
+													delay:		15,
 													range:		0.5,
 													anchor:		'center',
 													init:		function(t) { t.addClass('inactive'); },
 													on:			function(t) { t.removeClass('inactive'); },
 													off:		function(t) { t.addClass('inactive'); }
-												});
-									
-										// Work
-											$('#work')
-												.scrollwatch({
-													delay:		25,
-													range:		0.6,
-													anchor:		'center',
-													init:		function(t) { t.find('.row.images').addClass('inactive'); },
-													on:			function(t) {
-																	var	rows = t.find('.row.images'),
-																		length = rows.length,
-																		n = 0;
-																	
-																	rows.each(function() {
-																		var row = $(this);
-																		window.setTimeout(function() {
-																			row.removeClass('inactive');
-																		}, 100 * (length - n++));
-																	});
-																},
-													off:		function(t) {
-																	var	rows = t.find('.row.images'),
-																		length = rows.length,
-																		n = 0;
-																	
-																	rows.each(function() {
-																		var row = $(this);
-																		window.setTimeout(function() {
-																			row.addClass('inactive');
-																		}, 100 * (length - n++));
-																	});
-																}
 												});
 
 										// Contact
