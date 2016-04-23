@@ -72,11 +72,11 @@ $(function(){
         oT.append(oSpan);
     }
     var n=0;
-    var timer=setInterval(function(){
+    var timer2=setInterval(function(){
         $(aSpan[n]).animate({'opacity':'1'});
         n++;
         if(n==str.length){
-            clearInterval(timer);
+            clearInterval(timer2);
         }
     },50);
 });
